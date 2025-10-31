@@ -64,7 +64,7 @@ function NavBar() {
     <nav className="nav-bar">
       <Logo />
       <SearchBar />
-      <Numresults />
+      <NumResults />
     </nav>
   );
 }
@@ -78,7 +78,7 @@ function Logo() {
   );
 }
 
-function Numresults() {
+function NumResults() {
   return (
     <p className="num-results">
       Found <strong>X</strong> results
