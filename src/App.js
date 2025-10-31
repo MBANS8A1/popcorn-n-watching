@@ -50,6 +50,15 @@ const tempWatchedData = [
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
+function App() {
+  return (
+    <>
+      <NavBar />
+      <Main />
+    </>
+  );
+}
+
 function NavBar() {
   const [query, setQuery] = useState("");
   return (
@@ -73,6 +82,14 @@ function NavBar() {
 }
 
 function Main() {
+  const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState(tempWatchedData);
+  const [isOpen1, setIsOpen1] = useState(true);
+  const [isOpen2, setIsOpen2] = useState(true);
+
+  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
+  const avgUserRating = average(watched.map((movie) => movie.userRating));
+  const avgRuntime = average(watched.map((movie) => movie.runtime));
   <main className="main">
     <div className="box">
       <button
@@ -156,23 +173,6 @@ function Main() {
       )}
     </div>
   </main>;
-}
-
-function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
-  const [isOpen1, setIsOpen1] = useState(true);
-  const [isOpen2, setIsOpen2] = useState(true);
-
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating));
-  const avgRuntime = average(watched.map((movie) => movie.runtime));
-
-  return (
-    <>
-      <NavBar />
-    </>
-  );
 }
 
 export default App;
