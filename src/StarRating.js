@@ -6,8 +6,8 @@ const containerStyle = {
 
 export default function StarRating() {
   return (
-    <div>
-      <div style={containerStyle}>
+    <div style={containerStyle}>
+      <div>
         {Array.from({ length: 5 }, (_, i) => (
           <span key={i}>S{i + 1}</span>
         ))}
