@@ -101,7 +101,10 @@ function SearchBar() {
 }
 
 function Main() {
-  <main className="main"></main>;
+  <main className="main">
+    <ListBox />
+    <WatchedBox />
+  </main>;
 }
 
 function ListBox() {
