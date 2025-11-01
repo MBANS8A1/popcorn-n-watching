@@ -55,7 +55,7 @@ function App() {
 
   return (
     <>
-      <NavBar movies={movies}>
+      <NavBar>
         <Logo />
         <SearchBar />
         <NumResults movies={movies} />
