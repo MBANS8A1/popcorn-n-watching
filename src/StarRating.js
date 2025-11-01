@@ -1,7 +1,13 @@
+const containerStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "16px",
+};
+
 export default function StarRating() {
   return (
     <div>
-      <div>
+      <div style={containerStyle}>
         {Array.from({ length: 5 }, (_, i) => (
           <span key={i}>S{i + 1}</span>
         ))}
