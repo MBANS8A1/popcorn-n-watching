@@ -56,7 +56,6 @@ function App() {
   return (
     <>
       <NavBar>
-        <Logo />
         <SearchBar />
         <NumResults movies={movies} />
       </NavBar>
@@ -66,7 +65,12 @@ function App() {
 }
 
 function NavBar({ children }) {
-  return <nav className="nav-bar">{children}</nav>;
+  return (
+    <nav className="nav-bar">
+      <Logo />
+      {children}
+    </nav>
+  );
 }
 
 function Logo() {
