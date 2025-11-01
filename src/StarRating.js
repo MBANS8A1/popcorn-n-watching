@@ -1,1 +1,3 @@
-export default function StarRating() {}
+export default function StarRating() {
+  return <div>Hello</div>;
+}
