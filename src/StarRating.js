@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const containerStyle = {
   display: "flex",
   alignItems: "center",
@@ -22,7 +24,7 @@ export default function StarRating({ maxRating = 5 }) {
           <Star key={i} />
         ))}
       </div>
-      <p style={textStyle}>{rating}</p>
+      <p style={textStyle}>{rating || ""}</p>
     </div>
   );
 }
