@@ -22,7 +22,7 @@ export default function StarRating({
     lineHeight: 1,
     margin: 0,
     colour,
-    fontSize: `${size}`,
+    fontSize: `${size / 1.5}px`,
   };
 
   function handleRating(rating) {
