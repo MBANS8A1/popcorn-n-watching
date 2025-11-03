@@ -17,7 +17,7 @@ const textStyle = {
 
 export default function StarRating({
   colour = "#fcc419",
-  size,
+  size = 48,
   maxRating = 5,
 }) {
   const [rating, setRating] = useState(0);
