@@ -14,6 +14,7 @@ export default function StarRating({
   color = "#fcc419",
   size = 48,
   maxRating = 5,
+  className = "",
 }) {
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
@@ -29,7 +30,7 @@ export default function StarRating({
     setRating(rating);
   }
   return (
-    <div style={containerStyle}>
+    <div style={containerStyle} className={className}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
