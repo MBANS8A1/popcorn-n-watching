@@ -55,14 +55,18 @@ const average = (arr) =>
 function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const query = "interstellar";
 
   useEffect(function () {
     async function fetchMovies() {
       const res = await fetch(
-        `http://www.omdbapi.com/?apikey=${APIKEY}&s=interstellar`
+        `http://www.omdbapi.com/?apikey=${APIKEY}&s=${query}`
       );
+
       const data = await res.json();
       setMovies(data.Search);
+      console.log(data.Search);
     }
     fetchMovies();
   }, []);
