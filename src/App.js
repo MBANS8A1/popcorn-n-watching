@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./StarRating.js";
+import { APIKEY } from "./api_key_omdb.js";
 
 const tempMovieData = [
   {
