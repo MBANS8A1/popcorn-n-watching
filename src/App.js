@@ -53,6 +53,7 @@ const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 function App() {
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -143,9 +144,7 @@ function NumResults({ movies }) {
   );
 }
 
-function SearchBar() {
-  const [query, setQuery] = useState("");
-
+function SearchBar({ query, setQuery }) {
   return (
     <input
       className="search"
