@@ -68,9 +68,12 @@ function App() {
         );
         if (!res.ok)
           throw new Error("Something went wrong with fetching movies");
+
         const data = await res.json();
-        console.log("* " + data);
+        if (data.Response === "False") throw new Error("Movie not found");
+
         setMovies(data.Search);
+        console.log(data);
       } catch (err) {
         console.error(err.message);
         setError(err.message);
