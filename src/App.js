@@ -71,7 +71,7 @@ function App() {
         const data = await res.json();
         setMovies(data.Search);
       } catch (err) {
-        console.err(err.message);
+        console.error(err.message);
         setError(err.message);
       } finally {
         setIsLoading(false);
@@ -87,7 +87,6 @@ function App() {
         <NumResults movies={movies} />
       </NavBar>
       <Main>
-        {isLoading ? <Loader /> : <MovieList movies={movies} />}
         <Box>
           {isLoading && <Loader />}
           {!isLoading && !error && <MovieList movies={movies} />}
