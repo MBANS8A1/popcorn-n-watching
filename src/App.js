@@ -65,7 +65,7 @@ function App() {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${APIKEY}&s=${query}`
+          `http://www.omdbapi.com/?apikey=${APIKEY}&s=${tempQuery}`
         );
         if (!res.ok)
           throw new Error("Something went wrong with fetching movies");
@@ -74,7 +74,6 @@ function App() {
         if (data.Response === "False") throw new Error("Movie not found");
 
         setMovies(data.Search);
-        console.log(data);
       } catch (err) {
         console.error(err.message);
         setError(err.message);
@@ -88,7 +87,7 @@ function App() {
   return (
     <>
       <NavBar>
-        <SearchBar />
+        <SearchBar query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </NavBar>
       <Main>
