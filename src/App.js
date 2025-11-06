@@ -70,10 +70,11 @@ function App() {
           throw new Error("Something went wrong with fetching movies");
         const data = await res.json();
         setMovies(data.Search);
-        setIsLoading(false);
       } catch (err) {
         console.err(err.message);
         setError(err.message);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchMovies();
