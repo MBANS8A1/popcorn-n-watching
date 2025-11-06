@@ -57,7 +57,7 @@ function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const query = "interstellar";
+  const query = "unknowmoviendfuihuihf";
 
   useEffect(function () {
     async function fetchMovies() {
@@ -69,6 +69,7 @@ function App() {
         if (!res.ok)
           throw new Error("Something went wrong with fetching movies");
         const data = await res.json();
+        console.log("* " + data);
         setMovies(data.Search);
       } catch (err) {
         console.error(err.message);
