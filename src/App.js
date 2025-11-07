@@ -281,7 +281,17 @@ function MovieDetails({ selectedId, onCloseMovie }) {
           &larr;
         </button>
         <img src={poster} alt={`Poster of movie: ${movie}`} />
-        <div className="details-overview"></div>
+        <div className="details-overview">
+          <h2>{title}</h2>
+          <p>
+            {released} &bull; {runtime}
+          </p>
+          <p>{genre}</p>
+          <p>
+            <span>⭐</span>
+            {imdbRating} IMDb rating
+          </p>
+        </div>
       </header>
       {selectedId}
     </div>
