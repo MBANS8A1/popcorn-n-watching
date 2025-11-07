@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import "./StarRating.js";
+// import "./StarRating.js";
 import { APIKEY } from "./api_key_omdb.js";
+import StarRating from "./StarRating.js";
 
 const tempMovieData = [
   {
@@ -294,6 +295,9 @@ function MovieDetails({ selectedId, onCloseMovie }) {
         </div>
       </header>
       <section>
+        <div className="rating">
+          <StarRating maxRating={10} size={24} />
+        </div>
         <p>
           <em>{plot}</em>
         </p>
