@@ -329,9 +329,11 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
                 size={24}
                 onSetRating={setUserRating}
               />
-              <button className="btn-add" onClick={handleAdd}>
-                + Add to list
-              </button>
+              {userRating > 0 && (
+                <button className="btn-add" onClick={handleAdd}>
+                  + Add to list
+                </button>
+              )}
             </div>
             <p>
               <em>{plot}</em>
