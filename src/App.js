@@ -125,6 +125,7 @@ function App() {
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
               onAddWatched={handleAddWatched}
+              watched={watched}
             />
           ) : (
             <>
@@ -252,10 +253,15 @@ function Movie({ movie, onSelectMovie }) {
   );
 }
 
-function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
+function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+
+  const isWatched = watched
+    .map((watchedMovie) => watchedMovie.imdbID)
+    .includes(selectedId);
+  console.log(isWatched);
   const {
     Title: title,
     Year: year,
@@ -329,6 +335,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
                 size={24}
                 onSetRating={setUserRating}
               />
+
               {userRating > 0 && (
                 <button className="btn-add" onClick={handleAdd}>
                   + Add to list
