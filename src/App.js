@@ -54,7 +54,7 @@ const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 function App() {
-  const [query, setQuery] = useState("inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -97,6 +97,7 @@ function App() {
           setError("");
         } catch (err) {
           if (err.name !== "AbortError") {
+            console.err(err.message);
             setError(err.message);
           }
         } finally {
@@ -108,6 +109,7 @@ function App() {
         setError("");
         return;
       }
+      handleCloseMovie();
       fetchMovies();
       return function () {
         controller.abort();
@@ -311,7 +313,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       function callback(e) {
         if (e.code === "Escape") {
           onCloseMovie();
-          console.log("CLOSING UP");
         }
       }
 
