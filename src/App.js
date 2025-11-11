@@ -77,6 +77,15 @@ function App() {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
 
+  useEffect(function () {
+    document.addEventListener("keydown", function (e) {
+      if (e.code === "Escape") {
+        handleCloseMovie();
+        console.log("CLOSING UP");
+      }
+    });
+  }, []);
+
   useEffect(
     function () {
       const controller = new AbortController();
@@ -96,7 +105,6 @@ function App() {
           setMovies(data.Search);
           setError("");
         } catch (err) {
-          console.error(err.message);
           if (err.name !== "AbortError") {
             setError(err.message);
           }
