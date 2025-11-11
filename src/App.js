@@ -314,6 +314,10 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
           console.log("CLOSING UP");
         }
       });
+
+      return function () {
+        document.removeEventListener();
+      };
     },
     [onCloseMovie]
   );
