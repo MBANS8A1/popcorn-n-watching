@@ -94,6 +94,7 @@ function App() {
           const data = await res.json();
           if (data.Response === "False") throw new Error("Movie not found");
           setMovies(data.Search);
+          setError("");
         } catch (err) {
           console.error(err.message);
           if (err.name !== "AbortError") {
