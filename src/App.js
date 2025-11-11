@@ -97,7 +97,7 @@ function App() {
           setError("");
         } catch (err) {
           if (err.name !== "AbortError") {
-            console.err(err.message);
+            console.error(err.message);
             setError(err.message);
           }
         } finally {
