@@ -77,15 +77,6 @@ function App() {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
 
-  useEffect(function () {
-    document.addEventListener("keydown", function (e) {
-      if (e.code === "Escape") {
-        handleCloseMovie();
-        console.log("CLOSING UP");
-      }
-    });
-  }, []);
-
   useEffect(
     function () {
       const controller = new AbortController();
@@ -314,6 +305,15 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
+
+  useEffect(function () {
+    document.addEventListener("keydown", function (e) {
+      if (e.code === "Escape") {
+        onCloseMovie();
+        console.log("CLOSING UP");
+      }
+    });
+  }, []);
 
   useEffect(
     function () {
