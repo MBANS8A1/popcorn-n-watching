@@ -329,7 +329,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
               </p>
             </div>
           </header>
-
           <section>
             <div className="rating">
               {!isWatched ? (
