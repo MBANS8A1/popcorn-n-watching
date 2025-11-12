@@ -62,7 +62,7 @@ function App() {
   // const [watched, setWatched] = useState([]);
   const [watched, setWatched] = useState(function () {
     const storedValue = localStorage.getItem("watched");
-    return storedValue;
+    return JSON.parse(storedValue);
   });
 
   function handleSelectMovie(id) {
