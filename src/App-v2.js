@@ -24,6 +24,7 @@ function App() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
+    localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   }
 
   function handleDeleteWatched(id) {
@@ -257,6 +258,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       runtime: Number(runtime.split(" ").at(0)),
       userRating,
     };
+
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
@@ -328,6 +330,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
               </p>
             </div>
           </header>
+
           <section>
             <div className="rating">
               {!isWatched ? (
