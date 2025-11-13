@@ -1,4 +1,9 @@
+import { useState, useEffect } from "react";
+
 export function useMovies() {
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   useEffect(
     function () {
       const controller = new AbortController();
