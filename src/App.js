@@ -208,6 +208,10 @@ function NumResults({ movies }) {
 function SearchBar({ query, setQuery }) {
   const inputElement = useRef(null);
 
+  useEffect(function () {
+    inputElement.current.focus();
+  }, []);
+
   return (
     <input
       className="search"
