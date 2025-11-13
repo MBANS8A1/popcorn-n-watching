@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import "./StarRating.js";
 import { APIKEY } from "./api_key_omdb.js";
 import StarRating from "./StarRating.js";
@@ -206,6 +206,8 @@ function NumResults({ movies }) {
 }
 
 function SearchBar({ query, setQuery }) {
+  const inputElement = useRef(null);
+
   return (
     <input
       className="search"
@@ -213,6 +215,7 @@ function SearchBar({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      ref={inputElement}
     />
   );
 }
