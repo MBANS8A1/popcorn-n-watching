@@ -209,7 +209,13 @@ function SearchBar({ query, setQuery }) {
   const inputElement = useRef(null);
 
   useEffect(function () {
-    inputElement.current.focus();
+    function callback(e) {
+      if (e.code === "Enter") {
+        inputElement.current.focus();
+      }
+    }
+    document.addEventListener("keydown", callback);
+    return () => document.removeEventListener("keydown", callback);
   }, []);
 
   return (
