@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { APIKEY } from "./api_key_omdb";
 
 export function useMovies(query) {
   const [movies, setMovies] = useState([]);
@@ -36,7 +37,7 @@ export function useMovies(query) {
         setError("");
         return;
       }
-      handleCloseMovie();
+      //handleCloseMovie();
       fetchMovies();
       return function () {
         controller.abort();
@@ -44,4 +45,5 @@ export function useMovies(query) {
     },
     [query]
   );
+  return { movies, isLoading, error };
 }
