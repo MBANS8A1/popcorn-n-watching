@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 // import "./StarRating.js";
 import { APIKEY } from "./api_key_omdb.js";
 import StarRating from "./StarRating.js";
+import { useMovies } from "./useMovies.js";
 
 // const tempMovieData = [
 //   {
@@ -55,8 +56,8 @@ const average = (arr) =>
 
 function App() {
   const [query, setQuery] = useState("");
-
   const [selectedId, setSelectedId] = useState(null);
+  useMovies();
   // const [watched, setWatched] = useState([]);
   const [watched, setWatched] = useState(function () {
     const storedValue = localStorage.getItem("watched");
