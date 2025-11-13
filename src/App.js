@@ -210,8 +210,10 @@ function SearchBar({ query, setQuery }) {
 
   useEffect(function () {
     function callback(e) {
+      if (document.activeElement === inputElement.current) return;
       if (e.code === "Enter") {
         inputElement.current.focus();
+        setQuery("");
       }
     }
     document.addEventListener("keydown", callback);
