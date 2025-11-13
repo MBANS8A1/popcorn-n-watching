@@ -208,17 +208,20 @@ function NumResults({ movies }) {
 function SearchBar({ query, setQuery }) {
   const inputElement = useRef(null);
 
-  useEffect(function () {
-    function callback(e) {
-      if (document.activeElement === inputElement.current) return;
-      if (e.code === "Enter") {
-        inputElement.current.focus();
-        setQuery("");
+  useEffect(
+    function () {
+      function callback(e) {
+        if (document.activeElement === inputElement.current) return;
+        if (e.code === "Enter") {
+          inputElement.current.focus();
+          setQuery("");
+        }
       }
-    }
-    document.addEventListener("keydown", callback);
-    return () => document.removeEventListener("keydown", callback);
-  }, []);
+      document.addEventListener("keydown", callback);
+      return () => document.removeEventListener("keydown", callback);
+    },
+    [setQuery]
+  );
 
   return (
     <input
