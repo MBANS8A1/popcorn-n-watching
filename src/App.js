@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { APIKEY } from "./api_key_omdb.js";
 import StarRating from "./StarRating.js";
 import { useMovies } from "./useMovies.js";
+import { useLocalStorageState } from "./useLocalStorageState.js";
 
 // const tempMovieData = [
 //   {
@@ -58,6 +59,9 @@ function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const { movies, isLoading, error } = useMovies(query);
+
+  const [watched, setWatched] = useLocalStorageState([]);
+
   // const [watched, setWatched] = useState([]);
   const [watched, setWatched] = useState(function () {
     const storedValue = localStorage.getItem("watched");
